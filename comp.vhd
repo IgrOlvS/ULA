@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity comp is
 	Port ( x: in STD_LOGIC_VECTOR (3 downto 0);
 	       y: in STD_LOGIC_VECTOR (3 downto 0);
-          cp: in STD_LOGIC;	
-           z: out STD_LOGIC_VECTOR (3 downto 0));
+              cp: in STD_LOGIC;	
+               z: out STD_LOGIC_VECTOR (3 downto 0));
 end comp;
 
 architecture comp_behavioral of comp is
