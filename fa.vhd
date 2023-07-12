@@ -31,13 +31,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity fa is
 	Port ( -- operandos 1 e 2
-		   x: in STD_LOGIC;
+	       x: in STD_LOGIC;
 	       y: in STD_LOGIC;
 
-		   -- carry in
+	       -- carry in
 	       cin: in STD_LOGIC;	
 
-		   -- resultado e carry out
+	       -- resultado e carry out
 	       z: out STD_LOGIC;
 	       cout: out STD_LOGIC);
 end fa;
