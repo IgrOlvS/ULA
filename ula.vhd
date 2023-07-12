@@ -30,32 +30,32 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity ula is
-    Port (	-- operandos de entrada
-		  	x: 	 in STD_LOGIC_VECTOR (3 downto 0);
-          	y: 	 in STD_LOGIC_VECTOR (3 downto 0);
+    Port ( -- operandos de entrada
+	   x: in STD_LOGIC_VECTOR (3 downto 0);
+           y: in STD_LOGIC_VECTOR (3 downto 0);
 
-			-- entrada de controle e clock
-            cnt:   in STD_LOGIC_VECTOR (2 downto 0);
-			clk:   in STD_LOGIC;
+	   -- entrada de controle e clock
+	   cnt: in STD_LOGIC_VECTOR (2 downto 0);
+	   clk: in STD_LOGIC;
 				
-			-- saida final em binario
-            z_bin: out STD_LOGIC_VECTOR (3 downto 0);
+	   -- saida final em binario
+           z_bin: out STD_LOGIC_VECTOR (3 downto 0);
 
-			-- flags
-            c_out: out STD_LOGIC;
-            v: 	   out STD_LOGIC;
-            zero:  out STD_LOGIC;
-            neg:   out STD_LOGIC);
+	   -- flags
+           c_out: out STD_LOGIC;
+           v: 	  out STD_LOGIC;
+	   zero:  out STD_LOGIC;
+           neg:   out STD_LOGIC);
 end ula;
 
 architecture ula_behavioral of ula is
 
 -- componente do somador de 4 bits
 COMPONENT fourbitfa
-	Port ( x: 	  in STD_LOGIC_VECTOR (3 downto 0);
-	       y: 	  in STD_LOGIC_VECTOR (3 downto 0);
+	Port ( x: in STD_LOGIC_VECTOR (3 downto 0);
+	       y: in STD_LOGIC_VECTOR (3 downto 0);
 	       c_in:  in STD_LOGIC;	
-	       z: 	  out STD_LOGIC_VECTOR (3 downto 0);
+	       z:     out STD_LOGIC_VECTOR (3 downto 0);
 	       c_out: out STD_LOGIC);
 end COMPONENT;
 
@@ -69,10 +69,10 @@ end COMPONENT;
 
 -- componente do comparador
 COMPONENT comp
-	Port ( x: in STD_LOGIC_VECTOR (3 downto 0);
-	       y: in STD_LOGIC_VECTOR (3 downto 0);
-          cp: in STD_LOGIC;	
-           z: out STD_LOGIC_VECTOR (3 downto 0));
+	Port ( x:  in STD_LOGIC_VECTOR (3 downto 0);
+	       y:  in STD_LOGIC_VECTOR (3 downto 0);
+               cp: in STD_LOGIC;	
+               z:  out STD_LOGIC_VECTOR (3 downto 0));
 end COMPONENT;
 
 -- componente de controle de saidas
