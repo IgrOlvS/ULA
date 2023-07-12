@@ -61,10 +61,10 @@ end COMPONENT;
 
 -- componente do overflow
 COMPONENT overflow
-    Port ( x : in  STD_LOGIC;
-           y : in  STD_LOGIC;
-           z : in  STD_LOGIC;
-           v : out  STD_LOGIC);
+	Port (  x : in  STD_LOGIC;
+		y : in  STD_LOGIC;
+		z : in  STD_LOGIC;
+		v : out  STD_LOGIC);
 end COMPONENT;
 
 -- componente do comparador
@@ -77,7 +77,7 @@ end COMPONENT;
 
 -- componente de controle de saidas
 COMPONENT cntrl
-Port (	x: in STD_LOGIC_VECTOR(3 downto 0);
+	Port (	x: in STD_LOGIC_VECTOR(3 downto 0);
 		y: in STD_LOGIC_VECTOR(3 downto 0);
 		usa_som: in STD_LOGIC;
 		z_soma:  in  STD_LOGIC_VECTOR (3 downto 0);
@@ -118,25 +118,25 @@ begin
 	b_temp <= count;
 
 	-- definir a operacao a ser realizada a partir das entradas de controle
-	add  <= (NOT cnt(2)) AND (NOT cnt(1)) AND (NOT cnt(0));		-- controle para adicao
+	add  <= (NOT cnt(2)) AND (NOT cnt(1)) AND (NOT cnt(0));			-- controle para adicao
 	sub  <= (NOT cnt(2)) AND (NOT cnt(1)) AND cnt(0);			-- controle para subtracao
 	invt <= (NOT cnt(2)) AND cnt(1) AND (NOT cnt(0));			-- controle para inverter sinal
-	inc  <= (NOT cnt(2)) AND cnt(1) AND cnt(0);					-- controle para incremento
+	inc  <= (NOT cnt(2)) AND cnt(1) AND cnt(0);				-- controle para incremento
 	nd   <= cnt(2) AND (NOT cnt(1)) AND (NOT cnt(0));			-- controle para nand
-	db	 <= cnt(2) AND (NOT cnt(1)) AND cnt(0);					-- controle para dobro
-	cp   <= cnt(2) AND cnt(1) AND (NOT cnt(0));					-- controle para metade
-	par  <= cnt(2) AND cnt(1) AND cnt(0);						-- controle para paridade
+	db   <= cnt(2) AND (NOT cnt(1)) AND cnt(0);				-- controle para dobro
+	cp   <= cnt(2) AND cnt(1) AND (NOT cnt(0));				-- controle para metade
+	par  <= cnt(2) AND cnt(1) AND cnt(0);					-- controle para paridade
 
 	-- verifca se a operacao usa um somador ou nao
-    usa_som <= NOT(nd OR cp OR par);       
+    	usa_som <= NOT(nd OR cp OR par);       
 
 	-- carry in igual a 1 para subtracao/inverter/incremento
 	cin <= sub OR invt OR inc; 									
 
 	-- define o primeiro operando de acordo com a operacao
-	defx: FOR i in 0 to 3 GENERATE													-- igual a primeira entrada caso add,sub,nand,comparar ou paridade;
+	defx: FOR i in 0 to 3 GENERATE								-- igual a primeira entrada caso add,sub,nand,comparar ou paridade;
 		a(i) <= (a_temp(i) AND (NOT (invt OR inc OR db))) OR (b_temp(i) AND db);	-- igual ao segundo operando caso dobro;			
-	end GENERATE;																	-- 0 caso inverter ou incremento												
+	end GENERATE;										-- 0 caso inverter ou incremento												
 	
 	-- define o segundo operando de acordo com a operacao																					
 	defy: FOR i in 0 to 3 GENERATE
