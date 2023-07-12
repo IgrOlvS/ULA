@@ -31,13 +31,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity fourbitfa is
 	Port ( -- primeiro e segundo operandos
-		   x: in STD_LOGIC_VECTOR (3 downto 0);
+	       x: in STD_LOGIC_VECTOR (3 downto 0);
 	       y: in STD_LOGIC_VECTOR (3 downto 0);
 		   
-		   -- carry in
+	       -- carry in
 	       c_in: in STD_LOGIC;	
 		   
-		   -- resultado e carry out
+	       -- resultado e carry out
 	       z: out STD_LOGIC_VECTOR (3 downto 0);
 	       c_out: out STD_LOGIC);
 end fourbitfa;
