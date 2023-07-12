@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity cntrl is
     Port (  -- operandos
             x: in STD_LOGIC_VECTOR(3 downto 0);
-			y: in STD_LOGIC_VECTOR(3 downto 0);
+	    y: in STD_LOGIC_VECTOR(3 downto 0);
         
             -- caso a operacao use somador
             usa_som: in STD_LOGIC;
